@@ -4,7 +4,7 @@ provider "aws" {
 
 variable "ingress_rules" {
   type = list(number)
-  default = [25, 80, 443. 8080, 8443]
+  default = [25, 80, 443, 8080, 8443]
 }
 
 variable "egress_rules" {
@@ -31,7 +31,7 @@ resource "aws_security_group" "web_traffic" {
         from_port = port.value
         to_port = port.value
         protocol = "TCP"
-        cidr_blocks = ["0,0,0,0,/0"]
+        cidr_blocks = ["0.0.0.0/0"]
     }
   }
 
@@ -42,7 +42,7 @@ resource "aws_security_group" "web_traffic" {
         from_port = port.value
         to_port = port.value
         protocol = "TCP"
-        cidr_blocks = ["0,0,0,0,/0"]
+        cidr_blocks = ["0.0.0.0/0"]
     }
   }
 }
