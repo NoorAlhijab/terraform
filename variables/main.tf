@@ -34,6 +34,19 @@ variable "inputname" {
   description = "Set the name of the vpc"
 }
 
+variable "mytuple" {
+  type = tuple([string, number, string])
+  default = [ "cat", 1, "dog" ]
+}
+
+variable "myopject" {
+  type = opject({name = string, port = list(number)})
+  default = {
+    name = "NA"
+    port = [22, 25, 80]
+  }
+}
+
 resource "aws_vpc" "myvpc" {
   cidr_block = "10.0.0.0/16"
   tags = {
