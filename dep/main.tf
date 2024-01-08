@@ -31,6 +31,6 @@ filter {
 
 }
 
-output "dbservers"{
+output "dbservers"{ 
   value = data.aws_instance.dbsearch.availability_zone
 }
